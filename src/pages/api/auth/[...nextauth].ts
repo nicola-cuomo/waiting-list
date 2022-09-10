@@ -1,22 +1,24 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
 import { env } from "../../../env/server.mjs";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
     session({ session, user }) {
-      if (session.user) {
-        session.user.id = user.id;
-      }
+      // if (session.user) {
+      //   session.user.id = user.id;
+      // }
+      console.log("user from session", user);
+      console.log("session from session", session);
       return session;
     },
   },
   // Configure one or more authentication providers
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+    GoogleProvider({
+      clientId: env.GOOGLE_ID,
+      clientSecret: env.GOOGLE_SECRET,
     }),
     // ...add more providers here
   ],
