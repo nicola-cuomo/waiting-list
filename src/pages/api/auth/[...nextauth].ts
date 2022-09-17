@@ -23,8 +23,8 @@ export const authOptions: NextAuthOptions = {
       clientId: env.GOOGLE_ID,
       clientSecret: env.GOOGLE_SECRET,
     }),
-    // ...add more providers here
   ],
+  session: { maxAge: 30 * 24 * 60 * 60 },
 };
 
 export default NextAuth(authOptions);
