@@ -20,5 +20,7 @@ export default defineNextConfig({
     locales: ["en"],
     defaultLocale: "en",
   },
-  images: { domains: ["lh3.googleusercontent.com"] },
+  images: {
+    domains: ["lh3.googleusercontent.com", "flowbite.s3.amazonaws.com"],
+  },
 });
