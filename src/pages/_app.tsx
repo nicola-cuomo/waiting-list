@@ -3,8 +3,9 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import { SessionProvider } from "next-auth/react";
 import Head from "next/head";
 import Layout from "../components/layout";
+import { Session } from "next-auth";
 
-const MyApp: AppType = ({
+const MyApp: AppType<{ session: Session }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
